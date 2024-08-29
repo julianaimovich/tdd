@@ -47,4 +47,19 @@ public class PhoneBookTest {
         String contactName = phoneBook.findByNumber(annaNumber);
         assertNull(contactName);
     }
+
+    @Test
+    public void findContactNumberByExistentNameTest() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add(annaName, annaNumber);
+        String contactNumber = phoneBook.findByName(annaName);
+        assertEquals(annaNumber, contactNumber);
+    }
+
+    @Test
+    public void findContactNumberByNonexistentNameTest() {
+        PhoneBook phoneBook = new PhoneBook();
+        String contactNumber = phoneBook.findByName(annaName);
+        assertNull(contactNumber);
+    }
 }
