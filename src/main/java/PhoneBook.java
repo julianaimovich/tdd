@@ -1,5 +1,9 @@
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PhoneBook {
 
@@ -31,5 +35,20 @@ public class PhoneBook {
             number = contacts.get(name);
         }
         return number;
+    }
+
+    public void printAllNames() {
+        String result;
+        StringBuilder stringBuilder = new StringBuilder();
+        if (!contacts.isEmpty()) {
+            String contactsAsString = contacts.entrySet().stream()
+                    .sorted(Map.Entry.comparingByKey())
+                    .map(entry -> entry.getKey()  + ", " + entry.getValue())
+                    .collect(Collectors.joining("; "));
+            result = stringBuilder.append("Список контактов: ").append(contactsAsString).toString();
+        } else {
+            result = "Список контактов пуст";
+        }
+        System.out.print(result);
     }
 }
