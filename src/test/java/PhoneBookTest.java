@@ -24,6 +24,6 @@ public class PhoneBookTest {
         PhoneBook phoneBook = new PhoneBook();
         phoneBook.add("Anna", "88005553535");
         int contactsQuantity = phoneBook.add("Elena", "88166544514");
-        assertEquals(1, contactsQuantity);
+        assertEquals(2, contactsQuantity);
     }
 }
