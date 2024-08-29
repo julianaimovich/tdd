@@ -13,6 +13,15 @@ public class PhoneBook {
     }
 
     public String findByNumber(String number) {
-        return null;
+        String name = null;
+        if (contacts.containsValue(number)) {
+            name = contacts.entrySet()
+                    .stream()
+                    .filter(entry -> entry.getValue().equals(number))
+                    .map(Map.Entry::getKey)
+                    .toList()
+                    .get(0);
+        }
+        return name;
     }
 }

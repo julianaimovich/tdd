@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class PhoneBookTest {
 
@@ -44,6 +45,6 @@ public class PhoneBookTest {
     public void findContactNameByNonexistentNumberTest() {
         PhoneBook phoneBook = new PhoneBook();
         String contactName = phoneBook.findByNumber(annaNumber);
-        assertEquals(annaName, contactName);
+        assertNull(contactName);
     }
 }
